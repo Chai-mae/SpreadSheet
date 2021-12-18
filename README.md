@@ -47,7 +47,41 @@ For that ,we create a dialog for the user to select a cell and here is the code:
 ```
 **<h2>2-Find Dialog</h2>**
 This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
+
 Here is the code :
 ```javascript
+void SpreadSheet::findSlot(){
+    FindDialog dialog;
+     auto reply= dialog.exec();
+     auto found= false;
 
+     if(reply == FindDialog::Accepted)
+     {
+         QString text= dialog.getText();
+         for(auto i=0; i<spreadsheet->rowCount(); i++)
+         {
+             for(auto j=0; j<spreadsheet->columnCount(); j++)
+             {
+                 if(spreadsheet->item(i,j))
+                 {
+                   QString searchword = spreadsheet->item(i,j)->text();
+                    if(searchword.contains(text))
+                    {
+                        spreadsheet->setCurrentCell(i,j);
+                        found= true;
+
+
+
+                    }
+
+
+                }
+}
+         }
+         if(!found)
+               QMessageBox::information(this, "Error", "No such word or expression");
+
+
+     }
+     }
 ```
