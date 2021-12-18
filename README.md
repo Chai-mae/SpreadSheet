@@ -168,7 +168,7 @@ void SpreadSheet::saveSlot(){
 
 }
 ```
-**Load File**
+**Load Files**
 
 This private function is opening the content of our Spread Sheet in a simple format which open the coordinate file that we have just used .
 
@@ -232,3 +232,101 @@ void SpreadSheet::loadFileSlot(){
 }
 ```
 **<h2>3-Saving Files (CSV)</h2>**
+
+
+**Saving CSV Content**
+
+This private function is saving the content of our Spread Sheet in a CSV format which stores the coordinate and the content of non empty cells .
+
+Here is the code :
+```javascript
+void SpreadSheet::saveascsvContent(QString filename) {
+    QFile file(filename);
+
+   int rows = spreadsheet->rowCount();
+   int columns = spreadsheet->columnCount();
+   if(file.open(QIODevice::WriteOnly )) {
+
+       QTextStream out(&file);
+
+
+   for (int i = 0; i < rows; i++) {
+       for (int j = 0; j < columns; j++) {
+
+           auto cell = spreadsheet->item(i,j);
+           if(cell)
+               out<< cell->text()<<",";
+           else
+               out<< " "<<",";
+
+       }
+        out<< Qt::endl;
+
+   }
+
+
+   file.close();
+}
+}
+```
+**Save CSV File action**
+
+In this operational function we will create a slot to respond to the action trigger in the header .
+
+Here is the code:
+```javascript
+void SpreadSheet::openCsvContent(QString filename){
+         //open csv file
+         QFile file(filename);
+         QStringList list;
+         int count = 0;
+          if(file.open(QIODevice::ReadOnly))
+          {
+              QTextStream in(&file);
+
+              while( !in.atEnd())
+              {
+                  QString line = in.readLine();
+                  for(auto content : line.split(","))
+                      list.append(content);
+                  for(auto i =0; i<list.length(); i++)
+                      spreadsheet->setItem(count,i, new QTableWidgetItem(list[i]));
+                 count++;
+                 list.clear();
+              }
+
+
+          }
+         file.close();
+
+}
+```
+**Load  CSV Files**
+
+This private function is opening the content of our Spread Sheet in a CSV format which open the coordinate file that we have just used .
+
+Here is the code :
+```javascript
+void SpreadSheet::loadCsvFileSlot(){
+
+        QFileDialog d;
+        auto filename = d.getOpenFileName();
+
+        //ajouter le fichier qu'on vient d'ouvrir a recentFiles et creer la connexion
+        recentFilesList.append(new QAction(filename,this));
+        recentFilesMenu->addAction(recentFilesList[i]);
+
+        connect(recentFilesList[i],&QAction::triggered,this,&SpreadSheet::openRecent);
+        i++;
+        if(filemenu)
+
+       {
+            currentFile = new QString(filename);
+            setWindowTitle(*currentFile);
+
+           openCsvContent(*currentFile);
+
+        }
+
+}
+```
