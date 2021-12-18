@@ -330,3 +330,6 @@ void SpreadSheet::loadCsvFileSlot(){
 
 }
 ```
+
+
+# Text Editor
