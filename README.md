@@ -94,6 +94,9 @@ void SpreadSheet::findSlot(){
 ```
 **<h2>3-Saving Files</h2>**
 
+![Screenshot_131](https://user-images.githubusercontent.com/93831197/146657457-7b9fffc0-c7d3-4cfe-9e18-a7ecdf32910b.png)
+
+
 **Saving Content**
 
 This private function is saving the content of our Spread Sheet in a simple format which stores the coordinate and the content of non empty cells .
