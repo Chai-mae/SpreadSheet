@@ -9,3 +9,8 @@ Spreadsheets are computer applications used to store, analyze, organize and mani
 A spreadsheet is an easy way to store all different kinds of data. These data types can include financial data, customer data and product data. Excel spreadsheets can support more than a million rows and more than 16,000 columns, so you’ll have plenty of space to store a huge amount. That’s what makes them ideal for database creation.
 
 In our project (Spreadsheet) the first part in it we ve focused on creating the menu bar and implementing the actions but in in this tp we will approach the second part and we will work on two methods which is **Go Cell** and **Find Location**:
+
+**<h2>1-Go Cell</h2>**
+
+The purpose of this method is to give the location 
+
