@@ -50,6 +50,9 @@ For that ,we create a dialog for the user to select a cell and here is the code:
 ```
 **<h2>2-Find Dialog</h2>**
 
+![Screenshot_134](https://user-images.githubusercontent.com/93831197/146657388-20694252-21a1-4d1b-89b4-2e4e705789d2.png)
+
+
 This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
 
 Here is the code :
