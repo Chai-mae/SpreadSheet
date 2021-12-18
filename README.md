@@ -6,7 +6,7 @@
 
 Spreadsheets are computer applications used to store, analyze, organize and manipulate data in the rows and columns of a grid. The program operates by taking in data, which can be numbers or text, into the cells of tables.  If the data is numbers, the program will compute it for you depending on the function you need to be completed.
 
-In our project (Spreadsheet) the first part in it we ve focused on creating the menu bar and implementing the actions but in in this tp we will approach the second part and we will work on two methods which is **Go Cell** and **Find Location**:
+In our project (Spreadsheet) the first part in it we ve focused on creating the menu bar and implementing the actions but in in this tp we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving Files**:
 
 **<h2>1-Go Cell</h2>**
 
@@ -46,4 +46,8 @@ For that ,we create a dialog for the user to select a cell and here is the code:
 }
 ```
 **<h2>2-Find Dialog</h2>**
-In this method
+This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
+Here is the code :
+```javascript
+
+```
