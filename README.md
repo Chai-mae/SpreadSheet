@@ -46,6 +46,7 @@ For that ,we create a dialog for the user to select a cell and here is the code:
 }
 ```
 **<h2>2-Find Dialog</h2>**
+
 This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
 
 Here is the code :
@@ -88,6 +89,7 @@ void SpreadSheet::findSlot(){
 **<h2>3-Saving Files</h2>**
 
 **Saving Content**
+
 This private function is saving the content of our Spread Sheet in a simple format which stores the coordinate and the content of non empty cells .
 
 Here is the code :
@@ -124,6 +126,7 @@ void SpreadSheet::saveContent(QString filename) {
 }
 ```
 **Save File action**
+
 In this operational function we will create a slot to respond to the action trigger in the header .
 
 Here is the code:
@@ -156,4 +159,66 @@ void SpreadSheet::saveSlot(){
 
 }
 ```
+**Load File**
 
+This private function is opening the content of our Spread Sheet in a simple format which open the coordinate file that we have just used .
+
+Here is the code :
+```javascript
+void SpreadSheet::openContent(QString filename) {
+    //open coordinate file
+    // obtenir le fichier
+    QFile file(filename);
+    QString line;
+     if(file.open(QIODevice::ReadOnly))
+     {
+         QTextStream in(&file);
+         while( !in.atEnd())
+         {
+             line = in.readLine();
+             auto tokens = line.split(QChar(',') );
+             int row = tokens[0].toInt();
+             int col = tokens[1].toInt();
+             spreadsheet->setItem(row, col , new QTableWidgetItem(tokens[2]));
+         }
+
+
+     }
+
+     file.close();
+
+
+
+
+}
+```
+
+**Load File action**
+
+In this function we will create a slot to respond to the action trigger in the header .\
+
+Here is the code:
+```javascript
+void SpreadSheet::loadFileSlot(){
+
+        QFileDialog d;
+        auto filename = d.getOpenFileName();
+
+        //ajouter le fichier qu'on vient d'ouvrir a recentFiles et creer la connexion
+        recentFilesList.append(new QAction(filename,this));
+        recentFilesMenu->addAction(recentFilesList[i]);
+
+        connect(recentFilesList[i],&QAction::triggered,this,&SpreadSheet::openRecent);
+        i++;
+        if(filemenu)
+
+       {
+            currentFile = new QString(filename);
+            setWindowTitle(*currentFile);
+
+           openContent(*currentFile);
+
+        }
+
+}
+```
