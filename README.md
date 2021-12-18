@@ -10,6 +10,9 @@ In our project (Spreadsheet) the first part in it we ve focused on creating the 
 
 **<h2>1-Go Cell</h2>**
 
+![Screenshot_133](https://user-images.githubusercontent.com/93831197/146657359-4016ffa7-5937-40c3-b966-99d917424484.png)
+
+
 The purpose of this method is to give the location so that you can find the Cell 
 
 For that ,we create a dialog for the user to select a cell and here is the code:
