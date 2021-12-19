@@ -357,5 +357,159 @@ A text editor is a tool that allows a user to create and revise documents in a c
 
 In this project we create a menu bar and toolbar with qt designer:
 
+![1](https://user-images.githubusercontent.com/93831197/146658849-cd8eff47-7616-4335-a31e-7843e660b45f.jpeg)
 
-and the actions we code it
+
+
+and the actions we code it:
+```javascript
+void textEditor::on_action_Exit_triggered()
+{
+    ui->statusbar->showMessage("Quitting ...");
+
+    QApplication::quit();
+
+}
+
+
+void textEditor::on_actionNew_triggered()
+{
+
+    currentFile.clear();
+    currentFile=nullptr;
+    ui->plainTextEdit->setPlainText(QString());
+    ui->statusbar->showMessage("Creating a new file");
+
+
+}
+
+
+void textEditor::on_actionOpen_triggered()
+{
+    QString filename= QFileDialog::getOpenFileName(this,"Open the file");
+    QFile file(filename);
+    currentFile = filename;
+    if(!file.open(QIODevice::ReadOnly | QFile::Text))
+        QMessageBox::warning(this,"Warning","Cannot open file :"+file.errorString());
+    setWindowTitle(filename);
+    QTextStream in(&file);
+    QString text = in.readAll();
+    ui->plainTextEdit->setPlainText(text);
+    file.close();
+    ui->statusbar->showMessage("Opening the chosen file...");
+
+
+}
+
+void textEditor::on_action_Copy_triggered()
+{
+    ui->plainTextEdit->copy();
+    ui->statusbar->showMessage("Copying the current selection");
+
+
+}
+
+
+void textEditor::on_action_Paste_triggered()
+{
+   ui->plainTextEdit->paste();
+   ui->statusbar->showMessage("Pasting the previous copied selection");
+
+}
+
+
+void textEditor::on_action_Cut_triggered()
+{
+    ui->plainTextEdit->cut();
+    ui->statusbar->showMessage("Cutting the current selection");
+
+}
+
+
+
+
+
+void textEditor::on_actionAbout_Qt_triggered()
+{
+    QMessageBox::aboutQt(this, "About Me");
+    ui->statusbar->showMessage("About Qt...");
+
+
+}
+
+
+void textEditor::on_action_About_triggered()
+{
+    QMessageBox::about(this, tr("About Application"),
+             tr("The <b>Application</b> example demonstrates how to "
+                "write modern GUI applications using Qt, with a menu bar, "
+                "toolbars, and a status bar."));
+    ui->statusbar->showMessage("About ...");
+
+
+}
+
+
+bool textEditor::saveFile(const QString &filename){
+    QString errorMessage;
+
+    QGuiApplication::setOverrideCursor(Qt::WaitCursor);
+    QSaveFile file(filename);
+    if (file.open(QFile::WriteOnly)) {
+        QTextStream out(&file);
+        out << ui->plainTextEdit->toPlainText();
+        if (!file.commit()) {
+            errorMessage = tr("Cannot write file %1:\n%2.")
+                           .arg(QDir::toNativeSeparators(filename), file.errorString());
+        }
+    } else {
+        errorMessage = tr("Cannot open file %1 for writing:\n%2.")
+                       .arg(QDir::toNativeSeparators(filename), file.errorString());
+    }
+    QApplication::restoreOverrideCursor();
+
+    if (!errorMessage.isEmpty()) {
+        QMessageBox::warning(this, tr("Application"), errorMessage);
+        return false;
+    }
+
+    setCurrentFile(filename);
+    statusBar()->showMessage(tr("File saved"), 2000);
+    return true;
+}
+bool textEditor::Save()
+{
+    if (currentFile.isEmpty()) {
+        return SaveAs();
+    } else {
+        return saveFile(currentFile);
+    }
+    ui->statusbar->showMessage("Saving the file ...");
+
+}
+
+
+bool textEditor::SaveAs()
+{
+
+    QFileDialog dialog(this);
+    dialog.setWindowModality(Qt::WindowModal);
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
+    if (dialog.exec() != QDialog::Accepted)
+        return false;
+    return saveFile(dialog.selectedFiles().first());
+    ui->statusbar->showMessage("Saving the file as ...");
+
+
+}
+void textEditor::setCurrentFile(const QString &filename){
+    currentFile = filename;
+    ui->plainTextEdit->document()->setModified(false);
+    setWindowModified(false);
+
+    QString shownName = currentFile;
+    if (currentFile.isEmpty())
+        shownName = "untitled.txt";
+    setWindowFilePath(shownName);
+}
+```
