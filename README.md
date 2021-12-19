@@ -8,6 +8,9 @@ Spreadsheets are computer applications used to store, analyze, organize and mani
 
 In our project (Spreadsheet) the first part in it we've focused on creating the menu bar and implementing the actions but in this homework we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving and loading Files**.
 
+![Screenshot_130](https://user-images.githubusercontent.com/93831197/146657494-ef1fdac3-70ee-447f-8cc7-1b4584dc8d66.png)
+
+
 
 
 **<h2>1-Go Cell</h2>**
