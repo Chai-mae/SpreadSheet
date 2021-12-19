@@ -9,6 +9,15 @@
    [2-Find Dialog](#2-Find-Dialog)
    
    [3-Saving and Loading Files](#3-Saving-and-Loading-Files)
+   
+   [4-Recent Files](#Recent-Files)
+   
+   [Text Editor](#Text-Editor)
+   
+       [Introduction](#Introduction)
+       [Functionality](#Functionality)
+   
+   
 
 
 
