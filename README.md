@@ -1,7 +1,5 @@
-# SpreadSheet
-![online-spreadsheet-database-software-283593-666x418](https://user-images.githubusercontent.com/93831197/146638536-10d04c22-31b2-420c-bda7-c67a81b42d80.png)
-
 **<h2>Table of contents</h2>**
+[Part 1 : Spread Sheet](#Part 1: SpreadSheet)
    [Introduction](#Introduction)
    
    [1-Go Cell](1-Go-Cell)
@@ -12,7 +10,7 @@
    
    [4-Recent Files](#Recent-Files)
    
-   [Text Editor](#Text-Editor)
+   [Part 2: Text Editor](#Part 2: Text-Editor)
    
    [Introduction](#Introduction)
    
@@ -20,6 +18,8 @@
    
    
 
+#Part 1: SpreadSheet
+![online-spreadsheet-database-software-283593-666x418](https://user-images.githubusercontent.com/93831197/146638536-10d04c22-31b2-420c-bda7-c67a81b42d80.png)
 
 
 **<h2>Introduction</h2>**
@@ -394,7 +394,7 @@ void SpreadSheet::openRecent(){
 ```
 
 
-# Text Editor
+# Part 2: Text Editor
 
 **<h2>Introduction</h2>**
 
