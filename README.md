@@ -14,8 +14,9 @@
    
    [Text Editor](#Text-Editor)
    
-       [Introduction](#Introduction)
-       [Functionality](#Functionality)
+   [Introduction](#Introduction)
+   
+   [Functionality](#Functionality)
    
    
 
