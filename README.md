@@ -1,6 +1,16 @@
 # SpreadSheet
 ![online-spreadsheet-database-software-283593-666x418](https://user-images.githubusercontent.com/93831197/146638536-10d04c22-31b2-420c-bda7-c67a81b42d80.png)
 
+**<h2>Table of contents</h2>**
+   [Introduction](#Introduction)
+   
+   [1-Go Cell](1-Go-Cell)
+   
+   [2-Find Dialog](#2-Find-Dialog)
+   
+   [3-Saving and Loading Files](#3-Saving-and-Loading-Files)
+
+
 
 **<h2>Introduction</h2>**
 
