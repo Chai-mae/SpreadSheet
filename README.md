@@ -6,7 +6,7 @@
 
 * Spreadsheets are computer applications used to store, analyze, organize and manipulate data in the rows and columns of a grid. The program operates by taking in data, which can be numbers or text, into the cells of tables.  If the data is numbers, the program will compute it for you depending on the function you need to be completed.
 
-*In our project (Spreadsheet) the first part in it we've focused on creating the menu bar and implementing the actions but in this homework we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving and loading Files**.
+* In our project (Spreadsheet) the first part in it we've focused on creating the menu bar and implementing the actions but in this homework we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving and loading Files**.
 
 ![Screenshot_130](https://user-images.githubusercontent.com/93831197/146657494-ef1fdac3-70ee-447f-8cc7-1b4584dc8d66.png)
 
@@ -18,7 +18,7 @@
 ![Screenshot_133](https://user-images.githubusercontent.com/93831197/146657359-4016ffa7-5937-40c3-b966-99d917424484.png)
 
 
-*The purpose of this method is to give the location so that you can find the Cell 
+* The purpose of this method is to give the location so that you can find the Cell 
 
 For that ,we create a dialog for the user to select a cell and here is the code:
  ```javascript
@@ -58,7 +58,7 @@ For that ,we create a dialog for the user to select a cell and here is the code:
 ![Screenshot_134](https://user-images.githubusercontent.com/93831197/146657388-20694252-21a1-4d1b-89b4-2e4e705789d2.png)
 
 
-*This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
+* This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
 
 Here is the code :
 ```javascript
@@ -98,7 +98,7 @@ void SpreadSheet::findSlot(){
      }
 ```
 **<h2>3-Saving and Loading Files</h2>**
-*In this part we will implement several methods and slots to save and open files in two different format which are :
+* In this part we will implement several methods and slots to save and open files in two different format which are :
    - the simple format (coordinate format)
    - CSV format
 
@@ -109,7 +109,7 @@ void SpreadSheet::findSlot(){
 
 **Saving Content**
 
-*This private function is saving the content of our Spread Sheet in a simple format which stores the coordinate and the content of non empty cells .
+* This private function is saving the content of our Spread Sheet in a simple format which stores the coordinate and the content of non empty cells .
 
 Here is the code :
 ```javascript
@@ -146,7 +146,7 @@ void SpreadSheet::saveContent(QString filename) {
 ```
 **Save File action**
 
-*In this operational function we will create a slot to respond to the action trigger in the header .
+* In this operational function we will create a slot to respond to the action trigger in the header .
 
 Here is the code:
 ```javascript
@@ -175,7 +175,7 @@ void SpreadSheet::saveSlot(){
 ```
 **Load Files**
 
-*This private function is opening the content of our Spread Sheet in a simple format which open the coordinate file that we have stored previously .
+* This private function is opening the content of our Spread Sheet in a simple format which open the coordinate file that we have stored previously .
 
 Here is the code :
 ```javascript
@@ -205,7 +205,7 @@ void SpreadSheet::openContent(QString filename) {
 
 **Load File action**
 
-*In this function we will create a slot to respond to the action trigger in the header .
+* In this function we will create a slot to respond to the action trigger in the header .
 
 Here is the code:
 ```javascript
@@ -232,7 +232,7 @@ void SpreadSheet::loadFileSlot(){
 
 **Saving CSV Content**
 
-This private function is saving the content of our Spread Sheet in a CSV format which stores both empty and  non empty cells .
+* This private function is saving the content of our Spread Sheet in a CSV format which stores both empty and  non empty cells .
 
 Here is the code :
 ```javascript
@@ -267,7 +267,7 @@ void SpreadSheet::saveascsvContent(QString filename) {
 ```
 **Save CSV File action**
 
-*In this operational function we will create a slot to respond to the action trigger in the header .
+* In this operational function we will create a slot to respond to the action trigger in the header .
 
 Here is the code:
 ```javascript
@@ -290,7 +290,7 @@ void SpreadSheet::loadCsvFileSlot(){
 ```
 **Load  CSV Files**
 
-*This private function is opening the content of a CSV file that we have stored before .
+* This private function is opening the content of a CSV file that we have stored before .
 
 Here is the code :
 ```javascript
@@ -321,7 +321,7 @@ void SpreadSheet::openCsvContent(QString filename){
 }
 ```
 **Load File action**
-*In this operational function we will create a slot to respond to the action trigger in the header .
+* In this operational function we will create a slot to respond to the action trigger in the header .
 ```javascript
 void SpreadSheet::loadCsvFileSlot(){
 
@@ -342,14 +342,14 @@ void SpreadSheet::loadCsvFileSlot(){
 ```
 
 **Recent Files**
-*This function shows the files that we have used recently.
+* This function shows the files that we have used recently.
 
-*To implement Open Recent we need to introduce the following objects and functions:
+* To implement Open Recent we need to introduce the following objects and functions:
  - a list of QActions QList<QAction*> recentFileActionList. This list of actions represents the recently opened files
  - a submenu QMenu* recentFilesMenu which will appear after we click on Open Recent
  - a slot openRecent() that is called anytime we choose a file from recentFilesMenu
 **Implementation**
-*Each time we open or save a file its path appears in the open recent subMenu.
+* Each time we open or save a file its path appears in the open recent subMenu.
 We add the following code to the save and load slots :
 ```javascript
  recentFilesList.append(new QAction(filename,this));
@@ -358,7 +358,7 @@ We add the following code to the save and load slots :
         connect(recentFilesList[i],&QAction::triggered,this,&SpreadSheet::openRecent);
         i++;
 ```
-*Now to open the files in the open recent subMenu we call the openRecent() slot :
+* Now to open the files in the open recent subMenu we call the openRecent() slot :
 ```javascript
 void SpreadSheet::openRecent(){
     QAction *action = qobject_cast<QAction *>(sender());
@@ -377,13 +377,14 @@ void SpreadSheet::openRecent(){
 
 **<h2>Introduction</h2>**
 
-*A text editor is a tool that allows a user to create and revise documents in a computer. Though this task can be carried out in other modes, the word text editor commonly refers to the tool that does this interactively. Earlier computer documents used to be primarily plain text documents, but nowadays due to improved input-output mechanisms and file formats, a document frequently contains pictures along with texts whose appearance (script, size, colour and style) can be varied within the document. Apart from producing output of such wide variety, text editors today provide many advanced features of interactiveness and output.
+* A text editor is a tool that allows a user to create and revise documents in a computer. Though this task can be carried out in other modes, the word text editor commonly refers to the tool that does this interactively. Earlier computer documents used to be primarily plain text documents, but nowadays due to improved input-output mechanisms and file formats, a document frequently contains pictures along with texts whose appearance (script, size, colour and style) can be varied within the document. Apart from producing output of such wide variety, text editors today provide many advanced features of interactiveness and output.
 
-*In this project we create a text editor using the QPlainTextEditor library with Qt Designer:
+* In this project we create a text editor using the QPlainTextEditor library with Qt Designer for a rapid design of it features:
 
 ![1](https://user-images.githubusercontent.com/93831197/146658849-cd8eff47-7616-4335-a31e-7843e660b45f.jpeg)
 
-
+** Functionality**
+Here is the code the functionality of the Text Editor :
 ```javascript
 void textEditor::on_action_Exit_triggered()
 {
