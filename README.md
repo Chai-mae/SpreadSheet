@@ -6,7 +6,9 @@
 
 Spreadsheets are computer applications used to store, analyze, organize and manipulate data in the rows and columns of a grid. The program operates by taking in data, which can be numbers or text, into the cells of tables.  If the data is numbers, the program will compute it for you depending on the function you need to be completed.
 
-In our project (Spreadsheet) the first part in it we ve focused on creating the menu bar and implementing the actions but in in this tp we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving and loading Files**:
+In our project (Spreadsheet) the first part in it we've focused on creating the menu bar and implementing the actions but in this homework we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving and loading Files**.
+
+
 
 **<h2>1-Go Cell</h2>**
 
