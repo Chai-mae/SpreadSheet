@@ -547,5 +547,5 @@ void textEditor::setCurrentFile(const QString &filename){
 ```
 
 **<h2>Made by:</h2>**
-<h3>Biyaye Chaimae</h3>
 <h3>Ikram Belmadani</h3>
+<h3>Biyaye Chaimae</h3>
