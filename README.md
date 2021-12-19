@@ -4,9 +4,9 @@
 
 **<h2>Introduction</h2>**
 
-Spreadsheets are computer applications used to store, analyze, organize and manipulate data in the rows and columns of a grid. The program operates by taking in data, which can be numbers or text, into the cells of tables.  If the data is numbers, the program will compute it for you depending on the function you need to be completed.
+*Spreadsheets are computer applications used to store, analyze, organize and manipulate data in the rows and columns of a grid. The program operates by taking in data, which can be numbers or text, into the cells of tables.  If the data is numbers, the program will compute it for you depending on the function you need to be completed.
 
-In our project (Spreadsheet) the first part in it we've focused on creating the menu bar and implementing the actions but in this homework we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving and loading Files**.
+*In our project (Spreadsheet) the first part in it we've focused on creating the menu bar and implementing the actions but in this homework we will approach the second part and we will work on new  methods which are  **Go Cell** , **Find Location** and **Saving and loading Files**.
 
 ![Screenshot_130](https://user-images.githubusercontent.com/93831197/146657494-ef1fdac3-70ee-447f-8cc7-1b4584dc8d66.png)
 
@@ -18,7 +18,7 @@ In our project (Spreadsheet) the first part in it we've focused on creating the 
 ![Screenshot_133](https://user-images.githubusercontent.com/93831197/146657359-4016ffa7-5937-40c3-b966-99d917424484.png)
 
 
-The purpose of this method is to give the location so that you can find the Cell 
+*The purpose of this method is to give the location so that you can find the Cell 
 
 For that ,we create a dialog for the user to select a cell and here is the code:
  ```javascript
@@ -58,7 +58,7 @@ For that ,we create a dialog for the user to select a cell and here is the code:
 ![Screenshot_134](https://user-images.githubusercontent.com/93831197/146657388-20694252-21a1-4d1b-89b4-2e4e705789d2.png)
 
 
-This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
+*This method is the reverse of Go Cell function and it consists of a dialog that  prompts the user for a input and seek a cell that contains the entered text.
 
 Here is the code :
 ```javascript
@@ -97,14 +97,19 @@ void SpreadSheet::findSlot(){
      }
      }
 ```
-**<h2>3-Saving Files</h2>**
+**<h2>3-Saving and Loading Files</h2>**
+*In this part we will implement several methods and slots to save and open files in two different format which are :
+   - the simple format (coordinate format)
+   - CSV format
+
+**Simple format**
 
 ![Screenshot_131](https://user-images.githubusercontent.com/93831197/146657457-7b9fffc0-c7d3-4cfe-9e18-a7ecdf32910b.png)
 
 
 **Saving Content**
 
-This private function is saving the content of our Spread Sheet in a simple format which stores the coordinate and the content of non empty cells .
+*This private function is saving the content of our Spread Sheet in a simple format which stores the coordinate and the content of non empty cells .
 
 Here is the code :
 ```javascript
@@ -141,7 +146,7 @@ void SpreadSheet::saveContent(QString filename) {
 ```
 **Save File action**
 
-In this operational function we will create a slot to respond to the action trigger in the header .
+*In this operational function we will create a slot to respond to the action trigger in the header .
 
 Here is the code:
 ```javascript
@@ -156,11 +161,6 @@ void SpreadSheet::saveSlot(){
         auto filename = d.getSaveFileName();
 
        
-        recentFilesList.append(new QAction(filename,this));
-        recentFilesMenu->addAction(recentFilesList[i]);
-
-        connect(recentFilesList[i],&QAction::triggered,this,&SpreadSheet::openRecent);
-        i++;
         // changer le nom du fichier courant
         currentFile = new QString(filename);
         // mettre a jour le titre de le fenetre
@@ -175,7 +175,7 @@ void SpreadSheet::saveSlot(){
 ```
 **Load Files**
 
-This private function is opening the content of our Spread Sheet in a simple format which open the coordinate file that we have just used .
+*This private function is opening the content of our Spread Sheet in a simple format which open the coordinate file that we have stored previously .
 
 Here is the code :
 ```javascript
@@ -209,7 +209,7 @@ void SpreadSheet::openContent(QString filename) {
 
 **Load File action**
 
-In this function we will create a slot to respond to the action trigger in the header .\
+*In this function we will create a slot to respond to the action trigger in the header .
 
 Here is the code:
 ```javascript
@@ -236,7 +236,7 @@ void SpreadSheet::loadFileSlot(){
 
 }
 ```
-**<h2>3-Saving Files (CSV)</h2>**
+**CSV format**
 
 
 **Saving CSV Content**
