@@ -1,5 +1,7 @@
 **<h2>Table of contents</h2>**
+
 [Part 1 : Spread Sheet](#Part 1: SpreadSheet)
+
    [Introduction](#Introduction)
    
    [1-Go Cell](1-Go-Cell)
@@ -10,7 +12,7 @@
    
    [4-Recent Files](#Recent-Files)
    
-   [Part 2: Text Editor](#Part 2: Text-Editor)
+   [Part 2: Text Editor](# Part 2: Text Editor)
    
    [Introduction](#Introduction)
    
