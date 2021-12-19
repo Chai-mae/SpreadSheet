@@ -150,7 +150,7 @@ void SpreadSheet::saveSlot(){
         // creer un dialog pour obtenir le nom de fichier
         auto filename = d.getSaveFileName();
 
-        //ajouter le fichier enregiste a recentFiles et creer la connexion
+       
         recentFilesList.append(new QAction(filename,this));
         recentFilesMenu->addAction(recentFilesList[i]);
 
@@ -312,7 +312,7 @@ void SpreadSheet::loadCsvFileSlot(){
         QFileDialog d;
         auto filename = d.getOpenFileName();
 
-        //ajouter le fichier qu'on vient d'ouvrir a recentFiles et creer la connexion
+        
         recentFilesList.append(new QAction(filename,this));
         recentFilesMenu->addAction(recentFilesList[i]);
 
@@ -330,6 +330,32 @@ void SpreadSheet::loadCsvFileSlot(){
 
 }
 ```
+**Recent Files**
+This function the files that we have just using it recently.
+
+To implement Open Recent we need to introduce the following objects and functions:
+
+```javascript
+void SpreadSheet::openRecent(){
+    QAction *action = qobject_cast<QAction *>(sender());
+    if (action)
+    {
+        openContent(action->text());
+        saveContent(action->text());
+        saveascsvContent(action->text());
+    }
+
+}
+```
 
 
 # Text Editor
+
+**<h2>Introduction</h2>**
+
+A text editor is a tool that allows a user to create and revise documents in a computer. Though this task can be carried out in other modes, the word text editor commonly refers to the tool that does this interactively. Earlier computer documents used to be primarily plain text documents, but nowadays due to improved input-output mechanisms and file formats, a document frequently contains pictures along with texts whose appearance (script, size, colour and style) can be varied within the document. Apart from producing output of such wide variety, text editors today provide many advanced features of interactiveness and output.
+
+In this project we create a menu bar and toolbar with qt designer:
+
+
+and the actions we code it
