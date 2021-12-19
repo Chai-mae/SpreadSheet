@@ -382,8 +382,10 @@ void SpreadSheet::openRecent(){
 
 * In this project we create a text editor using the QPlainTextEditor library with Qt Designer for a rapid design of it features:
 
-![1](https://user-images.githubusercontent.com/93831197/146658849-cd8eff47-7616-4335-a31e-7843e660b45f.jpeg)
+![3](https://user-images.githubusercontent.com/93831197/146680242-8fc37030-249b-41df-a6c3-f18892e41def.jpeg)
 These are the set of menus of our application:
+
+
 
 **Functionality** 
 
