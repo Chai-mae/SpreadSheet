@@ -4,13 +4,13 @@
 
    [Introduction](#Introduction)
    
-   [1-Go Cell](1-Go-Cell)
+   [Go Cell](1-Go-Cell)
    
-   [2-Find Dialog](#2-Find-Dialog)
+   [Find Dialog](#2-Find-Dialog)
    
-   [3-Saving and Loading Files](#3-Saving-and-Loading-Files)
+   [Saving and Loading Files](#3-Saving-and-Loading-Files)
    
-   [4-Recent Files](#Recent-Files)
+   [Recent Files](#Recent-Files)
    
  [Part 2: Text Editor](#Part-2:-Text-Editor)
    
@@ -21,6 +21,7 @@
    
 
 #Part 1: SpreadSheet
+
 ![online-spreadsheet-database-software-283593-666x418](https://user-images.githubusercontent.com/93831197/146638536-10d04c22-31b2-420c-bda7-c67a81b42d80.png)
 
 
