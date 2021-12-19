@@ -200,10 +200,6 @@ void SpreadSheet::openContent(QString filename) {
      }
 
      file.close();
-
-
-
-
 }
 ```
 
@@ -217,13 +213,7 @@ void SpreadSheet::loadFileSlot(){
 
         QFileDialog d;
         auto filename = d.getOpenFileName();
-
-        //ajouter le fichier qu'on vient d'ouvrir a recentFiles et creer la connexion
-        recentFilesList.append(new QAction(filename,this));
-        recentFilesMenu->addAction(recentFilesList[i]);
-
-        connect(recentFilesList[i],&QAction::triggered,this,&SpreadSheet::openRecent);
-        i++;
+        
         if(filemenu)
 
        {
@@ -237,11 +227,12 @@ void SpreadSheet::loadFileSlot(){
 }
 ```
 **CSV format**
+![Screenshot_139 (1)](https://user-images.githubusercontent.com/93831197/146677035-9e3a37bc-3020-434b-bcab-e1da255d4982.png)
 
 
 **Saving CSV Content**
 
-This private function is saving the content of our Spread Sheet in a CSV format which stores the coordinate and the content of non empty cells .
+This private function is saving the content of our Spread Sheet in a CSV format which stores both empty and  non empty cells .
 
 Here is the code :
 ```javascript
@@ -276,9 +267,32 @@ void SpreadSheet::saveascsvContent(QString filename) {
 ```
 **Save CSV File action**
 
-In this operational function we will create a slot to respond to the action trigger in the header .
+*In this operational function we will create a slot to respond to the action trigger in the header .
 
 Here is the code:
+```javascript
+void SpreadSheet::loadCsvFileSlot(){
+
+        QFileDialog d;
+        auto filename = d.getOpenFileName();
+
+        if(filemenu)
+
+       {
+            currentFile = new QString(filename);
+            setWindowTitle(*currentFile);
+
+           openCsvContent(*currentFile);
+
+        }
+
+}
+```
+**Load  CSV Files**
+
+*This private function is opening the content of a CSV file that we have stored before .
+
+Here is the code :
 ```javascript
 void SpreadSheet::openCsvContent(QString filename){
          //open csv file
@@ -306,23 +320,14 @@ void SpreadSheet::openCsvContent(QString filename){
 
 }
 ```
-**Load  CSV Files**
-
-This private function is opening the content of our Spread Sheet in a CSV format which open the coordinate file that we have just used .
-
-Here is the code :
+**Load File action**
+*In this operational function we will create a slot to respond to the action trigger in the header .
 ```javascript
 void SpreadSheet::loadCsvFileSlot(){
 
         QFileDialog d;
         auto filename = d.getOpenFileName();
 
-        
-        recentFilesList.append(new QAction(filename,this));
-        recentFilesMenu->addAction(recentFilesList[i]);
-
-        connect(recentFilesList[i],&QAction::triggered,this,&SpreadSheet::openRecent);
-        i++;
         if(filemenu)
 
        {
@@ -335,11 +340,25 @@ void SpreadSheet::loadCsvFileSlot(){
 
 }
 ```
+
 **Recent Files**
-This function the files that we have just using it recently.
+*This function shows the files that we have used recently.
 
-To implement Open Recent we need to introduce the following objects and functions:
+*To implement Open Recent we need to introduce the following objects and functions:
+ - a list of QActions QList<QAction*> recentFileActionList. This list of actions represents the recently opened files
+ - a submenu QMenu* recentFilesMenu which will appear after we click on Open Recent
+ - a slot openRecent() that is called anytime we choose a file from recentFilesMenu
+**Implementation**
+*Each time we open or save a file its path appears in the open recent subMenu.
+We add the following code to the save and load slots :
+```javascript
+ recentFilesList.append(new QAction(filename,this));
+        recentFilesMenu->addAction(recentFilesList[i]);
 
+        connect(recentFilesList[i],&QAction::triggered,this,&SpreadSheet::openRecent);
+        i++;
+```
+*Now to open the files in the open recent subMenu we call the openRecent() slot :
 ```javascript
 void SpreadSheet::openRecent(){
     QAction *action = qobject_cast<QAction *>(sender());
@@ -358,15 +377,13 @@ void SpreadSheet::openRecent(){
 
 **<h2>Introduction</h2>**
 
-A text editor is a tool that allows a user to create and revise documents in a computer. Though this task can be carried out in other modes, the word text editor commonly refers to the tool that does this interactively. Earlier computer documents used to be primarily plain text documents, but nowadays due to improved input-output mechanisms and file formats, a document frequently contains pictures along with texts whose appearance (script, size, colour and style) can be varied within the document. Apart from producing output of such wide variety, text editors today provide many advanced features of interactiveness and output.
+*A text editor is a tool that allows a user to create and revise documents in a computer. Though this task can be carried out in other modes, the word text editor commonly refers to the tool that does this interactively. Earlier computer documents used to be primarily plain text documents, but nowadays due to improved input-output mechanisms and file formats, a document frequently contains pictures along with texts whose appearance (script, size, colour and style) can be varied within the document. Apart from producing output of such wide variety, text editors today provide many advanced features of interactiveness and output.
 
-In this project we create a menu bar and toolbar with qt designer:
+*In this project we create a text editor using the QPlainTextEditor library with Qt Designer:
 
 ![1](https://user-images.githubusercontent.com/93831197/146658849-cd8eff47-7616-4335-a31e-7843e660b45f.jpeg)
 
 
-
-and the actions we code it:
 ```javascript
 void textEditor::on_action_Exit_triggered()
 {
