@@ -227,6 +227,7 @@ void SpreadSheet::loadFileSlot(){
 }
 ```
 **CSV format**
+
 ![Screenshot_139 (1)](https://user-images.githubusercontent.com/93831197/146677035-9e3a37bc-3020-434b-bcab-e1da255d4982.png)
 
 
@@ -345,9 +346,9 @@ void SpreadSheet::loadCsvFileSlot(){
 * This function shows the files that we have used recently.
 
 * To implement Open Recent we need to introduce the following objects and functions:
- - a list of QActions QList<QAction*> recentFileActionList. This list of actions represents the recently opened files
- - a submenu QMenu* recentFilesMenu which will appear after we click on Open Recent
- - a slot openRecent() that is called anytime we choose a file from recentFilesMenu
+   - a list of QActions QList<QAction*> recentFileActionList. This list of actions represents the recently opened files
+   - a submenu QMenu* recentFilesMenu which will appear after we click on Open Recent
+   - a slot openRecent() that is called anytime we choose a file from recentFilesMenu
 **Implementation**
 * Each time we open or save a file its path appears in the open recent subMenu.
 We add the following code to the save and load slots :
@@ -382,8 +383,10 @@ void SpreadSheet::openRecent(){
 * In this project we create a text editor using the QPlainTextEditor library with Qt Designer for a rapid design of it features:
 
 ![1](https://user-images.githubusercontent.com/93831197/146658849-cd8eff47-7616-4335-a31e-7843e660b45f.jpeg)
+These are the set of menus of our application:
 
-** Functionality**
+**Functionality** 
+
 Here is the code the functionality of the Text Editor :
 ```javascript
 void textEditor::on_action_Exit_triggered()
